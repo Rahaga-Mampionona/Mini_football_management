@@ -1,4 +1,4 @@
-package main.java.com.rahaga;
+package com.rahaga;
 
 public enum UnitType {
     KG,L,PCS

@@ -8,7 +8,6 @@ public class Dish {
     private Double price;
     private String name;
     private DishTypeEnum dishType;
-    private List<Ingredient> ingredients;
     private List<DishIngredient> dishIngredientList;
 
     public List<DishIngredient> getDishIngredientList() {

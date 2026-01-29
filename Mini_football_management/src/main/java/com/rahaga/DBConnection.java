@@ -1,6 +1,5 @@
 package com.rahaga;
 
-import io.github.cdimascio.dotenv.Dotenv;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,23 +9,22 @@ public class DBConnection {
 
     public Connection getConnection() {
         try {
-            Dotenv dotenv = Dotenv.load();
-            String jdbcURl = dotenv.get("DB_URL");
-            String user = dotenv.get("DB_USERNAME");
-            String password = dotenv.get("DB_PASSWORD");
-            return DriverManager.getConnection(jdbcURl, user, password);
+            return DriverManager.getConnection(
+                    "jdbc:postgresql://localhost:5432/restaurant_db",
+                    "postgres",
+                    "m4mp10n0n4"
+            );
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erreur connexion DB", e);
         }
+        
     }
 
     public void closeConnection(Connection connection) {
-        if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -1,9 +1,15 @@
-CREATE DATABASE mini_football_db;
+CREATE DATABASE mini_dish_db;
 
-CREATE USER mini_football_db_manager WITH PASSWORD 'password';
+CREATE USER mini_dish_db_manager WITH PASSWORD '123456';
 
-GRANT ALL PRIVILEGES ON DATABASE mini_football_db TO mini_football_db_manager;
+GRANT CONNECT ON DATABASE mini_dish_db TO mini_dish_db_manager;
 
-psql -d mini_football_db
+\c mini_dish_db
 
-\c mini_football_db mini_football_db_manager;
+GRANT CREATE ON SCHEMA public TO mini_dish_db_manager;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+    GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO mini_dish_db_manager;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA public
+    GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO mini_dish_db_manager;

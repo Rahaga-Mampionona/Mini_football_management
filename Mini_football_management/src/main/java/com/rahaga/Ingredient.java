@@ -1,4 +1,7 @@
-package main.java.com.rahaga;
+package com.rahaga;
+import com.rahaga.enums.CategoryEnum;
+import com.rahaga.enums.DishTypeEnum;
+import com.rahaga.enums.UnitType;
 
 import org.td.entity.Dish;
 

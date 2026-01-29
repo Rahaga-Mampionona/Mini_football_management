@@ -2,10 +2,11 @@ package com.rahaga;
 
 import java.util.Objects;
 
+import main.java.com.rahaga.Ingredient;
+
 public class DishIngredient {
     private int id;
-    private int id_dish;
-    private int id_ingredient;
+    private Ingredient id_ingredient;
     private double quantity_required;
     private UnitType unit;
 
